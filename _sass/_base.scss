@@ -234,6 +234,7 @@ body {
 body>main.container { 
   flex:1;
   padding-top: calc(3*var(--pico-spacing));
+  z-index: 1;
 }
 
 // 5.1 Container Override
@@ -326,11 +327,13 @@ main h1 {
 
 .primary-nav-outer-container {
   position: relative;
+  z-index: 1001;
 }
 
 .primary-nav-container {
   position: absolute;
   width: 100%;
+  z-index: 1001;
 }
 
 // ----------------------------------------
@@ -342,7 +345,7 @@ nav.primary {
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-
+  z-index: 1001;
   background-color: var(--nav-mobile-bg);
   border-top:     var(--pico-border-width) solid var(--nav-mobile-border-top);
   border-bottom:  var(--pico-border-width) solid var(--nav-mobile-border-bottom);
@@ -359,6 +362,7 @@ nav.primary {
     padding: 0;
     gap: 0;
     list-style: none;
+    z-index: 1001;
 
     li {
       --pico-border-radius: 0;
@@ -366,6 +370,7 @@ nav.primary {
       margin: 0;
       padding: 0;
       border: 0;
+      z-index: 1001;
       &:nth-child(odd)  { border-top: 3px dotted var(--nav-mobile-divider-odd); }
       &:nth-child(even) { border-top: 3px dotted var(--nav-mobile-divider-even); }
       &:first-child     { border-top: 0; }
@@ -377,6 +382,7 @@ nav.primary {
       display: block;
       width: 100%;
       margin: 0;
+      z-index: 1001;
       padding: var(--pico-spacing) calc(var(--pico-spacing) / 2);
       text-align: center;
       text-decoration: none;
@@ -384,11 +390,12 @@ nav.primary {
       background-color: var(--nav-mobile-link-bg);
       text-decoration-color: var(--nav-mobile-link-underline);
 
+
       &:hover {
         text-decoration-color: var(--nav-mobile-link-underline);
       }
     }
-    li.active:not(#themeToggleListItem) { background: var(--nav-mobile-bg-color-active); }
+    li.active:not(.theme-toggle-list-item) { background: var(--nav-mobile-bg-color-active); }
   }
 }
 
@@ -436,38 +443,32 @@ nav.primary {
         border: none;
         border-radius: var(--pico-border-radius); 
         
-        &.active {
-          background: var(--nav-desktop-bg-color-active);
+        &.active:not(.theme-toggle-list-item) { 
+          background: var(--nav-desktop-bg-color-active); 
         }
-        &:nth-child(odd) {
-           border: 3px dotted var(--nav-desktop-border-color-odd);
-           &:hover {
-             background: blue;
-           }
-        }
-        &:nth-child(even) { 
-           border: 3px dotted var(--nav-desktop-border-color-even);
-           &:hover {
-             background: var(--nav-desktop-bg-color-even);
-           }
-        }
-        &:hover {          
+        &:nth-child(odd) { 
+          border: 3px dotted var(--nav-desktop-border-color-odd);
+        } 
+        &:nth-child(even) {
+          border: 3px dotted var(--nav-desktop-border-color-even); 
+        } 
+        &:hover {
           a {
-            text-decoration-line: underline;
-            text-decoration-color: var(--nav-desktop-link-underline);
+            text-decoration-line: underline; 
+            text-decoration-color: var(--nav-desktop-link-underline); 
           }
-          &:nth-child(odd) { 
-              background: var(--nav-desktop-bg-color-odd);
+          &.nav-item.nav-item:nth-child(odd) { 
+            background: var(--nav-desktop-bg-color-odd);
           }
-          &:nth-child(even) { 
-              background: var(--nav-desktop-bg-color-even);
+          &.nav-item.nav-item:nth-child(even) { 
+            background: var(--nav-desktop-bg-color-even); 
           }
         }
         
         &:first-child {
           border-left: 3px dotted var(--nav-desktop-border-color-odd);
         }
-        &#themeToggleListItem {
+        &.theme-toggle-list-item {
           width: 0;
           height: 0;
           border: none;
@@ -521,6 +522,7 @@ textarea[name="message"],
 }
 
 .card {
+  width: 100%;
   background: var(--pico-card-background-color);
   border-radius: calc(var(--pico-border-radius)*2);
   padding: var(--pico-spacing);
@@ -807,7 +809,7 @@ button, .button {
     border: none;
     border-radius: var(--pico-border-radius);
     cursor: pointer;
-    z-index: 1000;
+    z-index: 50;
   }
 
 // ========================================

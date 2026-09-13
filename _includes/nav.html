@@ -4,9 +4,9 @@
 				<nav class="primary" id="primaryNav">
 			  		<ul>
 					  {% for item in site.data.config.nav %}
-					    <li><a href="{{ item.link }}">{{ item.title }}</a></li>
+					    <li class="nav-item"><a href="{{ item.link }}">{{ item.title }}</a></li>
 					  {% endfor %}
-					  	<li id="themeToggleListItem"><a href="#" id="themeToggleItem" onclick="toggleTheme()">Switch Theme</li></a>
+					  	<li id="themeToggleListItem" class="theme-toggle-list-item"><a href="#" id="themeToggleItem" onclick="toggleTheme()">Switch Theme</li></a>
 					</ul>
 				</nav>
 			</div>
