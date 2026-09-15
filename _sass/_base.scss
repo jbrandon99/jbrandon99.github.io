@@ -205,7 +205,7 @@ a {
  * ========================================
  */
 body>header {
-  padding:0;
+  padding-top:calc(var(--pico-spacing)/4);
 }
 body {
   padding: 0;
